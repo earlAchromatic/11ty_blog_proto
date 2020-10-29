@@ -1,0 +1,28 @@
+---
+layout: base-layout.njk
+pagination:
+  data: collections.post
+  size: 10
+  reverse: true
+  alias: posts
+---
+
+{% for post in posts %}
+  <article class="card">
+        
+            <h5 class="card-header">
+                <a href="{{ post.url | url }}">{{ post.data.title }}</a>
+            </h5>
+            
+            <p class="card-body">
+                <time datetime="{{post.date | dateIso}}">{{post.date | dateReadable}}</time>
+                <br>
+                {% excerpt post %}
+            </p>
+            <div class="card-footer center text-center"><p>
+                <a href="{{ post.url | url }}" aria-label="Read more on {{ post.data.title }}">Read more</a>
+            </p></div>
+              
+  </article>
+{% endfor %}
+

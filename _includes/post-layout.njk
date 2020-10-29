@@ -1,0 +1,11 @@
+---
+layout: base-layout.njk
+---
+<article>
+  <div class="card">
+    <h1>{{ title }}</h1> 
+    <time datetime="{{ date | dateIso }}">{{ date | dateReadable }}</time> 
+    <br>
+    {{ content | safe }}
+    </div>
+</article>
